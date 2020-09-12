@@ -73,8 +73,10 @@
           <div class="row">
               <div class="col-12">
                   <div class="postInfo">
-                      <h1 class="title">Hola mundo</h1>
-                      <div class="info"><span class="category">Personal</span></div>
+                        
+                        
+                        <h1 class="title">Hola mundo</h1>
+                        <div class="info"><span class="category">#Personal</span><span> — </span><span class="date">viernes, 27 de septiembre de 2019</span></div>
                   </div>
               </div>
           </div>
@@ -110,83 +112,6 @@
 </footer>
 
 <script src="/js/animacion.js"></script>
-<script>
-    function ShowCategories(category) {
-        let articles = document.getElementsByClassName('article');
-        let years = document.getElementsByClassName('year');
-        let i;
-
-        if (category == ''){
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.remove('hideArticle')
-            }
-
-            for (i = 0; i < years.length; i++) {
-                years[i].classList.remove('hideArticle')
-            }
-
-        }
-        else{
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.add('hideArticle')
-            }
-
-            for (i = 0; i < years.length; i++) {
-                years[i].classList.add('hideArticle')
-            }
-
-            articles = document.getElementsByClassName(category);
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.remove('hideArticle')
-            }
-        }
-    }
-</script>
+<script src="/js/filter.js"></script>
 </body>
 </html>
-<!-- <article class="post">
-  <h1 class="post-title">Hola mundo</h1>
-  <p class="post-date">27 Sep 2019</p>
-  <p>Comúnmente, <strong>Hola mundo</strong> es el primer proyecto de prueba desarrollado en el lenguaje de programación que se está aprendiendo. Dicho proyecto consiste en imprimir (ya sea en la consola del sistema, a través de un mensaje o a través de un diálogo) el texto <strong>Hola mundo</strong>. Puede tratarse de algo muy simple, pero en muchas ocasiones lograr que funcione motiva a seguir aprendiendo.</p>
-
-<p>Para mí, el <strong>Hola mundo</strong> en este espacio representa el punto de partida del blog. Mi idea es compartir situaciones personales, la forma en que se presentaron y la forma en que les di solución. Estoy casi seguro que al “respaldar” dichas situaciones en este blog me ayudará a mejorar y podrá ayudar a muchas personas más.</p>
-
-<p>Este <strong>Hola mundo</strong> es posible gracias a @Daniela, @Monse, @Toño, @Carlos, @Enrique, @Damaris, @Samuel, @Christian y a todas las personas que me rodean. Agradezco su motivación para que yo siga aprendiendo y para que siga compartiendo mi conocimiento.</p>
-
-<p>¡Iniciemos con el blog!</p>
-
-</article>
-
-<aside class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="//Como-mostrar-los-archivos-ocultos-en-MacOS">
-            ¿Cómo mostrar los archivos ocultos en MacOS?
-            <small>25 Jul 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="//Mensaje-de-advertencia-al-intentar-guardar-los-cambios-de-diseno-en-SQL-Server-Management-Studio">
-            Mensaje de advertencia al intentar guardar los cambios de diseño en SQL Server Management Studio
-            <small>25 Mar 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="//Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD">
-            Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD
-            <small>25 Mar 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</aside> -->

@@ -73,8 +73,10 @@
           <div class="row">
               <div class="col-12">
                   <div class="postInfo">
-                      <h1 class="title">Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD</h1>
-                      <div class="info"><span class="category">Técnico</span></div>
+                        
+                        
+                        <h1 class="title">Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD</h1>
+                        <div class="info"><span class="category">#Técnico</span><span> — </span><span class="date">miércoles, 25 de marzo de 2020</span></div>
                   </div>
               </div>
           </div>
@@ -140,7 +142,7 @@
                           ¿Este artículo fue de utilidad?
                           <br>
                           Házmelo saber a través de un <a href="https://twitter.com/intent/tweet?text=@yakziamx tu post 'Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD' me fue de utilidad ¡Gracias!>" target="_blank">tweet</a>, un mensaje en mi <a href="https://www.facebook.com/Yakziamx/" target="_blank">fan page</a> o ... <br><br>
-                          <style>.bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 15px 7px 10px !important;line-height: 35px !important;height:51px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#F2505D !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 15px 7px 10px !important;font-size: 20px !important;letter-spacing:-0.08px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Lato', sans-serif !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Yakzia"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="¿Me invitas un café?"><span style="margin-left:5px;font-size:19px !important;">¿Me invitas un café?</span></a>
+                          <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Yakzia"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="¿Me invitas un café?"><span style="margin-left:5px;font-size:19px !important;">¿Me invitas un café?</span></a>
                       </div>
                       
                   </div>
@@ -163,128 +165,6 @@
 </footer>
 
 <script src="/js/animacion.js"></script>
-<script>
-    function ShowCategories(category) {
-        let articles = document.getElementsByClassName('article');
-        let years = document.getElementsByClassName('year');
-        let i;
-
-        if (category == ''){
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.remove('hideArticle')
-            }
-
-            for (i = 0; i < years.length; i++) {
-                years[i].classList.remove('hideArticle')
-            }
-
-        }
-        else{
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.add('hideArticle')
-            }
-
-            for (i = 0; i < years.length; i++) {
-                years[i].classList.add('hideArticle')
-            }
-
-            articles = document.getElementsByClassName(category);
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.remove('hideArticle')
-            }
-        }
-    }
-</script>
+<script src="/js/filter.js"></script>
 </body>
 </html>
-<!-- <article class="post">
-  <h1 class="post-title">Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD</h1>
-  <p class="post-date">25 Mar 2020</p>
-  <p>En estos días, he tenido la necesidad de conectarme a través de una red local a una PC que tiene Windows 10 Enterprise utilizando Conexión a Escritorio Remoto. Este proceso generalmente es sencillo, pero se complicó un poco por que la PC pertenece al Active Directory de Azure (Azure Active Directory o Azure AD). Cabe mencionar que me quería conectar desde otra PC con Windows 10.</p>
-
-<p>Buscando en internet encontré un artículo que me ayudó para poder realizar la conexión. A continuación comparto los pasos:</p>
-
-<h2 id="permite-la-conexión-remota-en-la-pc-a-la-que-te-conectarás">Permite la conexión remota en la PC a la que te conectarás</h2>
-<p>Accede a las propiedades del <strong>Sistema</strong>, y en el panel izquierdo selecciona la opción <strong>Configuración de Acceso remoto</strong>.</p>
-
-<p><img src="/img/posts/2020-03-25-Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD/Sistema.jpg" alt="Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD" /></p>
-
-<p class="information">Un método abreviado de teclado para acceder rápidamente a las propiedades del <strong>Sistema</strong> es presionando las teclas <span class="key">Windows</span> + <span class="key">Pausa</span></p>
-
-<p>Dentro del cuadro de diálogo <strong>Propiedades del sistema</strong>, selecciona la pestaña <strong>Remoto</strong>. Debajo, en la categoría <strong>Escritorio remoto</strong> selecciona la opción <strong>Permitir las conexiones remotas a este equipo</strong>.</p>
-
-<p><img src="/img/posts/2020-03-25-Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD/Sistema2.jpg" alt="Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD" /></p>
-
-<p>Al hacer clic en <strong>Aceptar</strong> se guardará la configuración establecida.</p>
-
-<h2 id="accede-a-la-pc-desde-una-pc-dentro-de-la-misma-red-a-través-de-conexión-a-escritorio-remoto">Accede a la PC desde una PC dentro de la misma red a través de Conexión a Escritorio Remoto</h2>
-
-<p>Es necesario abrir la aplicación <strong>Conexión a Escritorio Remoto</strong> (Remote Desktop Connection o RDP). Para ello, puedes presionar la tecla <span class="key">Windows</span> y a continuación buscar la aplicación.</p>
-
-<p>Dentro de la aplicación, haz clic en <strong>Mostrar opciones</strong>.</p>
-
-<p><img src="/img/posts/2020-03-25-Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD/RDP1.jpg" alt="Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD" /></p>
-
-<p>Se desplegarán más configuraciones de la aplicación. Lo importante en este momento es definir los siguientes valores:</p>
-
-<p><strong>PC / Equipo / Computer</strong>: Escribe el nombre de la PC a la que te conectarás o la dirección IP.</p>
-
-<p><strong>Nombre de Usuario / User name</strong>: Aquí hay un cambio. Generalmente solo se escribe el nombre de usuario de la PC y funciona la conexión remota. Para este caso, debe definirse lo siguiente <strong>.\AzureAD\correo@dominio.com</strong> en donde se debe reemplazar <strong>correo@dominio.com</strong> por el correo institucional que se usa para acceder a la PC.</p>
-
-<p>Ya que se establecieron los valores, se procede a hacer clic en el botón <strong>Guardar como</strong>.</p>
-
-<p><img src="/img/posts/2020-03-25-Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD/RDP2.jpg" alt="Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD" /></p>
-
-<p>Se abrirá el cuadro de diálogo del sistema <strong>Guardar como</strong> y a través de él definiremos una ubicación y un nombre para el archivo. En mi caso lo guardé con el nombre <strong>Conexión.rdp</strong> en el <strong>Escritorio</strong> de Windows.</p>
-
-<p>Ubicamos el archivo generado en el paso anterior y a continuación lo abrimos usando el bloc de notas.</p>
-
-<p><img src="/img/posts/2020-03-25-Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD/RDP3.jpg" alt="Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD" /></p>
-
-<p>Nos desplazamos al final del archivo, y agregamos las siguientes 2 líneas:</p>
-
-<p class="information">enablecredsspsupport:i:0<br />authentication level:i:2</p>
-
-<p><img src="/img/posts/2020-03-25-Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD/RDP4.jpg" alt="Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD" /></p>
-
-<p>Guardamos el archivo y cerramos el bloc de notas.</p>
-
-<p>Ahora, solo hacemos doble clic en el archivo para que se abra con la aplicación de <strong>Conexión a Escritorio Remoto</strong>. Si los valores que se establecieron anteriormente (como es el nombre de la <strong>PC</strong> y el <strong>Nombre de Usuario</strong>) se colocaron correctamente, la aplicación se conectará a la PC.</p>
-
-<p>El artículo que consulté originalmente fue <a href="http://www.bradleyschacht.com/remote-desktop-to-azure-ad-joined-computer/">Remote Desktop to Azure AD Joined Computer <span class="ion-ios7-paperplane-outline"></span></a>. Gracias / Thank you Bradley Schacht 🙂</p>
-
-</article>
-
-<aside class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="//Como-mostrar-los-archivos-ocultos-en-MacOS">
-            ¿Cómo mostrar los archivos ocultos en MacOS?
-            <small>25 Jul 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="//Mensaje-de-advertencia-al-intentar-guardar-los-cambios-de-diseno-en-SQL-Server-Management-Studio">
-            Mensaje de advertencia al intentar guardar los cambios de diseño en SQL Server Management Studio
-            <small>25 Mar 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="//Hola-mundo">
-            Hola mundo
-            <small>27 Sep 2019</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</aside> -->

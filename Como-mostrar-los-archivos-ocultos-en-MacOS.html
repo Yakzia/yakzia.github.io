@@ -73,8 +73,10 @@
           <div class="row">
               <div class="col-12">
                   <div class="postInfo">
-                      <h1 class="title">¿Cómo mostrar los archivos ocultos en MacOS?</h1>
-                      <div class="info"><span class="category">Técnico</span></div>
+                        
+                        
+                        <h1 class="title">¿Cómo mostrar los archivos ocultos en MacOS?</h1>
+                        <div class="info"><span class="category">#Técnico</span><span> — </span><span class="date">sábado, 25 de julio de 2020</span></div>
                   </div>
               </div>
           </div>
@@ -99,7 +101,7 @@
                           ¿Este artículo fue de utilidad?
                           <br>
                           Házmelo saber a través de un <a href="https://twitter.com/intent/tweet?text=@yakziamx tu post '¿Cómo mostrar los archivos ocultos en MacOS?' me fue de utilidad ¡Gracias!>" target="_blank">tweet</a>, un mensaje en mi <a href="https://www.facebook.com/Yakziamx/" target="_blank">fan page</a> o ... <br><br>
-                          <style>.bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 15px 7px 10px !important;line-height: 35px !important;height:51px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#F2505D !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 15px 7px 10px !important;font-size: 20px !important;letter-spacing:-0.08px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Lato', sans-serif !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Yakzia"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="¿Me invitas un café?"><span style="margin-left:5px;font-size:19px !important;">¿Me invitas un café?</span></a>
+                          <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Yakzia"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="¿Me invitas un café?"><span style="margin-left:5px;font-size:19px !important;">¿Me invitas un café?</span></a>
                       </div>
                       
                   </div>
@@ -122,87 +124,6 @@
 </footer>
 
 <script src="/js/animacion.js"></script>
-<script>
-    function ShowCategories(category) {
-        let articles = document.getElementsByClassName('article');
-        let years = document.getElementsByClassName('year');
-        let i;
-
-        if (category == ''){
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.remove('hideArticle')
-            }
-
-            for (i = 0; i < years.length; i++) {
-                years[i].classList.remove('hideArticle')
-            }
-
-        }
-        else{
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.add('hideArticle')
-            }
-
-            for (i = 0; i < years.length; i++) {
-                years[i].classList.add('hideArticle')
-            }
-
-            articles = document.getElementsByClassName(category);
-            for (i = 0; i < articles.length; i++) {
-                articles[i].classList.remove('hideArticle')
-            }
-        }
-    }
-</script>
+<script src="/js/filter.js"></script>
 </body>
 </html>
-<!-- <article class="post">
-  <h1 class="post-title">¿Cómo mostrar los archivos ocultos en MacOS?</h1>
-  <p class="post-date">25 Jul 2020</p>
-  <p>Hace unos días, mientras aprendía a crear un Log en Electron, me vi en la necesidad de ir a una carpeta del sistema operativo. Para mi sorpresa, la carpeta sí existía, pero no estaba visible.</p>
-
-<p>En internet encontré una forma para poder mostrar las carpetas ocultas del sistema en MacOS a través de la <strong>Terminal</strong>. Dentro de ella, escribimos la siguiente línea y presionamos <span class="key">Enter</span></p>
-
-<p class="terminal">defaults write com.apple.Finder AppleShowAllFiles TRUE &amp;&amp; killall Finder</p>
-
-<p>Esta línea le indica al sistema operativo que la aplicación Finder (usada para navegar entre los archivos y carpetas) debe mostrar todos los archivos. Además, deben «matarse» todas las instancias de Finder, esto, para que los cambios tengan efecto.</p>
-
-<p>Para deshacer los cambios, podemos optar por ejecutar una línea similar a la anterior, pero cambiando la palabra <strong>TRUE</strong> por <strong>FALSE</strong></p>
-
-<p class="terminal">defaults write com.apple.Finder AppleShowAllFiles FALSE &amp;&amp; killall Finder</p>
-
-</article>
-
-<aside class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="//Mensaje-de-advertencia-al-intentar-guardar-los-cambios-de-diseno-en-SQL-Server-Management-Studio">
-            Mensaje de advertencia al intentar guardar los cambios de diseño en SQL Server Management Studio
-            <small>25 Mar 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="//Conectarse-con-la-aplicacion-Conexion-a-Escritorio-Remoto-a-PC-con-Azure-AD">
-            Conectarse con la aplicación Conexión a Escritorio Remoto a PC con Azure AD
-            <small>25 Mar 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="//Hola-mundo">
-            Hola mundo
-            <small>27 Sep 2019</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</aside> -->
