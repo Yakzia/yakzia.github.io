@@ -7,7 +7,7 @@
 
 	<title>
         
-            Mi primer bot en Discord con JavaScript &mdash; Jonathan Mendoza
+            Mi primer Bot en Discord con JavaScript &mdash; Jonathan Mendoza
         
     </title>
 	
@@ -16,7 +16,7 @@
     <meta name="author" content="Jonathan Mendoza">
 
     <!-- CSS -->
-	<link rel="stylesheet" href="/css/main.css?v=0.0.5">
+	<link rel="stylesheet" href="/css/main.css?v=0.0.6">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
@@ -75,7 +75,7 @@
                     <div class="postInfo">
                         
                         
-                        <h1 class="title">Mi primer bot en Discord con JavaScript</h1>
+                        <h1 class="title">Mi primer Bot en Discord con JavaScript</h1>
                         <div class="info"><span class="category">#Desarrollo</span><span> — </span><span class="date">sábado, 31 de octubre de 2020</span></div>
                     </div>
                 </div>
@@ -83,116 +83,118 @@
             <div class="row">
                 <div class="col-12">
                     <div class="postContent">
-                        <h2 id="introducción">Introducción</h2>
-<p>Como miembro del Clan KMD y como jugador de Age of Empires he tenido una participación constante con los demás compañeros de equipo a través de la plataforma llamada Discord. Dicha plataforma tiene muchas ventajas en cuanto al tema de la comunicación: incluye canales de texto, canales de comunicación privada con los compañeros de juego, canales de voz, así como la opción de poder compartir la pantalla, entre otras más características que les compartiré en un post.</p>
-
-<p>Otra de las ventajas existentes es que es posible agregar bots permitiendo mejorar la experiencia en Discord: existen bots que reproducen música, otros que controlan los roles de los integrantes, así como bots que comparten memes en los canales de texto, etc. Lo interesante de todo esto es que, como programador, también puedes crear un bot para lo que desees, e incluso, puedes ponerlo a disposición de tu servidor de Discord o de otros para que le saquen provecho.</p>
-
-<p>En este tutorial, les compartiré mi experiencia creando un bot. Desde dar de alta el bot en la plataforma de Discord así como realizar una programación sencilla usando una PC con Windows y utilizando Visual Studio Code + JavaScript.</p>
+                        <p>En esta guía te compartiré mi experiencia creando un bot: desde crear una Aplicación y un Bot en el portal de desarrolladores de Discord, agregar el Bot a tu Servidor de Discord, hasta instalar un entorno de desarrollo en tu PC con Windows para darle vida al bot.</p>
 
 <p>Manos a la obra.</p>
 
-<h2 id="crear-un-bot-en-el-developer-portal-de-discord">Crear un Bot en el Developer Portal de Discord</h2>
+<h2 id="crea-una-aplicación-y-un-bot">Crea una Aplicación y un Bot</h2>
 
-<p>La primera parte de este proceso es crear una <strong>Aplicación</strong> y un <strong>Bot</strong> en el portal de Developers (desarrolladores) de Discord. Para esto:</p>
+<p>La primera parte de este proceso es crear una <strong>Aplicación</strong> y un <strong>Bot</strong> en el portal de desarrolladores de Discord (Discord Developer Portal). Para esto:</p>
+
 <ol>
-  <li>Ingresa al <a href="https://discordapp.com/developers/applications/me" target="_blank">Developer Portal</a>: Si ya tienes una cuenta inicia sesión. En caso contrario, es necesario crear una cuenta en Discord)</li>
-  <li>Crea una nueva aplicación: Dentro del <strong>Developer Portal</strong>, selecciona la opción <strong>Applications</strong> (ubicada en el panel izquierdo) y a continuación haz clic en el botón <strong>New Application</strong> (ubicado en el panel derecho). Elige el nombre deseado para la nueva aplicación y haz clic en el botón <strong>Create</strong>.</li>
-  <li>Crea un Bot para la nueva aplicación: Al crear la aplicación automáticamente serás redirigido a una página con herramientas y opciones para personalizar la aplicación. En el panel izquierdo deberás hacer clic en la opción <strong>Bot</strong> y a continuación hacer clic en el botón <strong>Add Bot</strong>. Leemos y aceptamos el mensaje que se mostrará y se agregará automáticamente el Bot que empezaremos a trabajar más adelante.</li>
+  <li>
+    <p>Ingresa al <a href="https://discordapp.com/developers/applications/me" target="_blank">Developer Portal</a> e inicia sesión con tu cuenta de Discord. (Si no tienes una cuenta puedes crearla, es gratis)</p>
+  </li>
+  <li>
+    <p>Crea una nueva aplicación. En el menú encontrarás la opción <strong>Applications</strong>, ingresa a ella y a continuación presiona el botón <strong>New Application</strong>. Elige el nombre deseado para la nueva aplicación y presiona el botón <strong>Create</strong>. Se mostrará una nueva página en donde encontrarás información general de tu aplicación.</p>
+
+    <blockquote>
+      <p><strong>Importante</strong>: Se mostrará una nueva página en donde encontrarás información general de tu nueva aplicación. Desplázate en la página para encontrar la etiqueta <strong>CLIENT ID</strong> y toma nota del número que se muestra. Este número será de utilidad en siguientes pasos de esta guía.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Crea un Bot para la nueva aplicación. En el menú de la nueva Aplicación ingresa a la opción <strong>Bot</strong> y a continuación presiona el botón <strong>Add Bot</strong>. Lee y acepta el mensaje que se muestra.</p>
+
+    <blockquote>
+      <p><strong>Importante</strong>: Se mostrará una nueva página en donde encontrarás información general de tu nuevo Bot. Desplázate en la página para encontrar la etiqueta <strong>TOKEN</strong> y presiona en el link con el texto <strong>Click to Reveal Token</strong>. Con esto, se mostrará una línea con letras, número y caracteres. Toma nota de este dato ya que será de utilidad en siguientes pasos de esta guía.</p>
+    </blockquote>
+  </li>
 </ol>
 
-<p><br /></p>
+<h2 id="agrega-el-bot-a-un-servidor-de-discord">Agrega el Bot a un servidor de Discord</h2>
 
-<p>La siguiente parte, tiene que ver con obtener información de nuestra <strong>Aplicación</strong> y de nuestro <strong>Bot</strong>:</p>
-<ol>
-  <li>Dentro de la página de la Aplicación que creamos en el proceso anterior es necesario elegir la opción <strong>General Information</strong> (ubicada en la parte izquierda). En la sección derecha, encontraremos una etiqueta con el texto <strong>CLIENT ID</strong> junto con unos números. Es necesario tomar nota de esta información, ya que se ocupará en siguientes pasos.</li>
-  <li>Dentro de la misma página de la Aplicación, ahora seleccionaremos la opción <strong>Bot</strong> (ubicada en la parte izquierda). En la sección derecha, encontraremos una etiqueta con el texto <strong>TOKEN</strong> y un link con el texto <strong>Click to Reveal Token</strong> (Clic para revelar el token). Es necesario hacer clic en el link para que se muestre una línea con caracteres, símbolos y números. Es necesario tomar nota de esta información ya que también se ocupará en siguientes pasos.</li>
-</ol>
+<p>El siguiente paso es agregar el Bot a un Servidor de Discord. Es necesario que para esto seas el propietario del Servidor o que tengas permisos para agregar Bots.</p>
 
-<blockquote>
-  <p>IMPORTANTE: No compartas la información del <strong>CLIENT ID</strong> ni del <strong>TOKEN</strong> con alguien más.</p>
-</blockquote>
+<p>Armaremos el siguiente link. Ubica la palabra <strong>APP_ID</strong> y reemplázala por los números que obtuviste de tu <strong>CLIENT ID</strong>:</p>
 
-<h2 id="agrega-el-bot-a-tu-servidor-de-discord">Agrega el Bot a tu servidor de Discord</h2>
+<p class="terminal">https://discordapp.com/oauth2/authorize?scope=bot&amp;client_id=APP_ID</p>
 
-<p>Como comentaba brevemente en la introducción, Discord es una plataforma de comunicación. Esto se logra creando Servidores y dentro de ellos, canales de texto o de voz. Las personas y Bots se agregan a los Servidores para poder interactuar.</p>
-
-<p>Para lo que haremos a continuación, es necesario que seas el propietario de un Servidor o que tengas los permisos necesarios para poder agregar Bots. Teniendo la información del <strong>CLIENT ID</strong> de tu aplicación armaremos el siguiente link:</p>
-
-<p>https://discordapp.com/oauth2/authorize?client_id=<strong>APP_ID</strong>&amp;scope=bot</p>
-
-<blockquote>
-  <p><strong>NOTA</strong>: Reemplaza <strong>APP_ID</strong> con el <strong>CLIENT ID</strong> que se obtuvo previamente.</p>
-</blockquote>
-
-<p>Ya que adaptaste el link, es necesario introducirlo en el navegador. Se mostrará una página de Discord en donde solicitará la autorización para que el Bot creado anteriormente se pueda unir a uno de los Servidores permitidos. Abre la lista desplegable, selecciona el Servidor y haz clic en el botón <strong>Autorizar</strong>.</p>
+<p>Una vez armado el link, usa tu navegador para ir a esa página web. Se mostrará una página de Discord en donde solicitará la autorización para que el Bot creado anteriormente se pueda unir a uno de los Servidores a los que perteneces. Abre la lista desplegable, selecciona el Servidor y haz clic en el botón <strong>Autorizar</strong>.</p>
 
 <p>Una vez realizado lo anterior, veremos que se agregará el Bot en el Servidor elegido. El Bot lo encontrarás dentro de la categoría de <strong>Desconectado</strong> en el Servidor.</p>
 
-<h2 id="montar-el-entorno-de-desarrollo-para-darle-vida-al-bot">Montar el entorno de desarrollo para darle vida al Bot.</h2>
+<h2 id="monta-el-entorno-de-desarrollo-para-darle-vida-al-bot">Monta el entorno de desarrollo para darle vida al Bot.</h2>
 
-<p>Como te comentaba en la introducción, vamos a darle vida al Bot usando un entorno de desarrollo sencillo (pero no por eso potente). Para esto, ocuparemos Windows como Sistema Operativo, así como Visual Studio Code para programar en Javascript la funcionalidad del bot y NodeJS el cual es un entorno de ejecución para JavaScript. (Útil para hospedar, compilar y ejecutar localmente las líneas de código que vayamos a escribir)</p>
-
-<p>Realicemos lo siguiente:</p>
-<ol>
-  <li>Ingresa a la página de <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>: Te recomiendo que descargues e instales la versión estable.</li>
-  <li>Ingresa a la página de descargas de <a href="https://nodejs.org/es/download/" target="_blank">Node.js</a>: Descarga el instalador de Windows adecuado a tu sistema operativo (32-bit o 64-bit) Una vez descargado es necesario ejecutarlo para proceder con la instalación.</li>
-</ol>
-
-<h2 id="bot-hola-mundo">Bot: Hola mundo!</h2>
-
-<p>Viene la parte interesante del proceso: Vamos a empezar a programar el Bot. Vamos a escribir unas cuantas líneas que nos permitirán saber si el Bot ya está listo para ser invocado así como una línea de saludo de parte del Bot. Para ello:</p>
+<p>Como te comentaba en la introducción, vamos a darle vida al Bot usando un entorno de desarrollo sencillo. Para esto, ocuparemos Windows como Sistema Operativo, así como Visual Studio Code para programar en Javascript la funcionalidad del bot y NodeJS el cual es un entorno de ejecución para JavaScript. (Útil para hospedar, compilar y ejecutar localmente las líneas de código que vayamos a escribir)</p>
 
 <ol>
-  <li>Crea una carpeta en tu PC. En dicha carpeta se creará toda la estructura de archivos que ocupará el Bot para poder ejecutarse. Tú elige la ubicación y el nombre para la nueva carpeta.</li>
-  <li>Ejecuta Visual Studio Code y a través de él, abre la carpeta creada en el punto anterior. A continuación, abre el menú <strong>Terminal</strong> y selecciona la opción <strong>New Terminal</strong> En la parte inferior de Visual Studio Code visualizarás el panel <strong>Terminal</strong>.</li>
+  <li>Descarga e instala <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> desde su página oficial. (Te recomiendo que instales la versión estable)</li>
+  <li>Ingresa a la página de <a href="https://nodejs.org/es/download/" target="_blank">Node.js</a>. Descarga e instala Node.js usando el instalador de Windows adecuado a tu sistema operativo (ya sea el de 32-bit o el de 64-bit).</li>
 </ol>
 
-<p>La Terminal nos permitirá ejecutar unas instrucciones con las cuales podremos obtener automáticamente los archivos necesarios para la creación de nuestro Bot. En la Terminal, ejecuta escribe el siguiente comando y presiona la tecla Enter para ejecutarlo.</p>
+<h2 id="hola-mundo">Hola mundo!</h2>
 
-<p class="terminal">npm install discord.js</p>
-
-<p>Esta instrucción le indicará al <strong>Node package manager (npm)</strong> (Administrador de paquetes de Node) que debe descargar e instalar en la carpeta elegida lo necesario para poder desarrollar un bot para discord usando JavaScript. Después de un par de segundos observaremos que en el panel de archivos de Visual Studio Code se encuentran nuevas carpetas y archivos.</p>
-
-<p>Será necesario crear un nuevo archivo en donde definiremos la programación de nuestro Bot. Para ello, en el panel de archivos de Visual Studio Code haz clic secundario y selecciona la opción <strong>New File</strong>, escribe como nombre para el nuevo archivo <strong>MiBot.js</strong> y presiona la tecla Enter.</p>
-
-<p>Haz doble clic en el archivo MiBot.js para editar su contenido y copia y pega en él el siguiente código:</p>
-
-<script src="https://gist.github.com/Yakzia/65fd678accbd2aae0f22d3d2063dadcb.js"></script>
-
-<blockquote>
-  <p><strong>Nota</strong>: Reemplaza el texto <strong>AquiVaElToken</strong> (ubicado en la línea 14) por el <strong>TOKEN</strong> que le corresponde a tu Bot.</p>
-</blockquote>
-
-<p>Una vez colocado el <strong>Token</strong> de tu Bot es necesario guardar los cambios en el archivo <strong>MiBot.js</strong> (puedes hacerlo usando el menú <strong>File</strong> y a continuación hacer clic en <strong>Save</strong>)</p>
-
-<p>Vamos a la Terminal de Visual Studio Code para escribir y ejecutar el siguiente comando:</p>
-
-<p class="terminal">node MiBot.js</p>
-
-<p>Si todo está correcto observaremos en la Terminal que se muestra el texto ¡Estoy listo!. Con esta confirmación vamos al Servidor de Discord en donde agregamos nuestro Bot:</p>
+<p>Viene la parte interesante del proceso: Vamos a empezar a programar el Bot.</p>
 
 <ol>
-  <li>Lo primero que observaremos es que nuestro Bot ya no está en la categoría Desconectado, sino que pasó ahora a Conectado.</li>
-  <li>Si escribimos la palabra <strong>hola</strong> (en minúsculas)… ¡El Bot nos responderá!</li>
-</ol>
+  <li>Crea una carpeta en tu PC.</li>
+  <li>Ejecuta <strong>Visual Studio Code</strong> y a través de él abre la carpeta creada en el punto anterior.</li>
+  <li>
+    <p>Abre el menú <strong>Terminal</strong> y selecciona la opción <strong>New Terminal</strong>. En la parte inferior de <strong>Visual Studio Code</strong> visualizarás un nuevo panel con el nombre <strong>Terminal</strong>.</p>
 
-<p>Para detener la ejecución de nuestro Bot, bastará con regresar y seleccionar la Terminal de Visual Studio Code y presionar la combinación de teclas Control + C</p>
+    <p>A través de la <strong>Terminal</strong> vamos a obtener los archivos necesarios para la creación de nuestro Bot. Escribe en ella el siguiente comando y presiona la tecla <span class="key">Enter</span> para ejecutarlo.</p>
+
+    <p class="terminal">npm install discord.js</p>
+
+    <blockquote>
+      <p>Esta instrucción le indicará al <strong>node package manager (npm)</strong> (Administrador de paquetes de Node.js) que debe descargar lo necesario para poder desarrollar un bot para Discord usando JavaScript. Después de un par de segundos observaremos que en el panel de archivos de <strong>Visual Studio Code</strong> se encontrarán disponibles una nueva carpeta y un nuevo archivo.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Será necesario crear un nuevo archivo en donde definiremos la programación de nuestro Bot. Para ello, en el panel de archivos de <strong>Visual Studio Code</strong> haz clic secundario y selecciona la opción <strong>New File</strong>. Escribe <strong>MiBot.js</strong> como nombre para el nuevo archivo y presiona la tecla Enter.</p>
+
+    <p>Haz doble clic en el archivo <strong>MiBot.js</strong> para editar su contenido y copia y pega en él el siguiente código:</p>
+
+    <script src="https://gist.github.com/Yakzia/65fd678accbd2aae0f22d3d2063dadcb.js"></script>
+
+    <blockquote>
+      <p><strong>Nota</strong>: Reemplaza el texto <strong>AquiVaElToken</strong> (ubicado en la línea 14) por el <strong>TOKEN</strong> que le corresponde a tu Bot.</p>
+    </blockquote>
+
+    <p>Una vez colocado el <strong>Token</strong> de tu Bot es necesario guardar los cambios en el archivo <strong>MiBot.js</strong> (puedes hacerlo usando el menú <strong>File</strong> y a continuación hacer clic en <strong>Save</strong>)</p>
+  </li>
+  <li>
+    <p>Vamos a la <strong>Terminal</strong> de <strong>Visual Studio Code</strong> para escribir y ejecutar el siguiente comando:</p>
+
+    <p class="terminal">node MiBot.js</p>
+
+    <p>Si todo está correcto observaremos en la <strong>Terminal</strong> que se muestra el texto <strong>¡Estoy listo!</strong>. Con esta confirmación vamos al Servidor de Discord en donde agregamos nuestro Bot:</p>
+
+    <ol>
+      <li>Lo primero que observaremos es que nuestro Bot ya no está en la categoría <strong>Desconectado</strong>, sino que pasó a <strong>Conectado</strong>.</li>
+      <li>Si escribimos en un canal de texto la palabra <strong>hola</strong> (en minúsculas)… ¡El Bot nos responderá!</li>
+    </ol>
+
+    <blockquote>
+      <p>Para detener la ejecución de nuestro Bot, bastará con regresar a la <strong>Terminal</strong> de <strong>Visual Studio Code</strong> y presionar la combinación de teclas <span class="key">Control</span> + <span class="key">C</span></p>
+    </blockquote>
+  </li>
+</ol>
 
 <h2 id="comprendiendo-el-código-de-mibotjs">Comprendiendo el código de MiBot.js</h2>
 
-<p>A continuación compartiré el código de el archivo MiBot.js. La diferencia con el código anterior, es que entre líneas escribí comentarios para tratar de entender el código.</p>
+<p>A continuación compartiré el código del archivo <strong>MiBot.js</strong>. La diferencia con el código anterior es que entre líneas escribí comentarios para tratar de entender el código:</p>
 
 <script src="https://gist.github.com/Yakzia/31ab91cee78c5aad977e762f8226ffc7.js"></script>
 
 <h2 id="qué-sigue">¿Qué sigue?</h2>
 
-<p>Como podrás observar, el Bot se mantendrá vivo cuando ejecutes el comando <strong>node MiBot.js</strong> en la Terminal y no detengas la ejecución. Si detienes la ejecución con la combinación de teclas Control + C observarás en Discord que el bot pasará a la categoría de Desconectado y aunque escribas hola en el canal de texto, el Bot ya no responderá. El siguiente paso podría ser hospedar el Bot en un servidor que permita mantenerlo vivo. (Esto lo podrás aprender en un próximo artículo que publique en este blog)</p>
+<p>Como podrás observar, el Bot se mantendrá vivo cuando ejecutes el comando <strong>node MiBot.js</strong> en la Terminal y no detengas la ejecución. Si detienes la ejecución con la combinación de teclas <span class="key">Control</span> + <span class="key">C</span> observarás en el Servidor de Discord que el Bot pasará a la categoría de <strong>Desconectado</strong> y aunque escribas hola en el canal de texto, el Bot ya no responderá. El siguiente paso podría ser hospedar el Bot en un servidor que permita mantenerlo vivo todo el tiempo sin depender de tu entorno de desarrollo local. (Esto lo podrás aprender en un próximo artículo que publique en este blog)</p>
 
-<p>Por otra parte, la funcionalidad de nuestro primer bot es limitada: responde con un Hola Mundo! cuando en un canal de texto escribimos la palabra “hola”. En este punto puedes empezar a agregar más comandos a tu bot para que haga una cosa u otra. ¡Dependerá de ti la funcionalidad que quieras darle!</p>
+<p>Por otra parte, la funcionalidad de nuestro primer Bot es limitada: responde con un <strong>Hola Mundo!</strong> cuando en un canal de texto escribimos la palabra <strong>hola</strong>. En este punto puedes empezar a agregar más comandos y funcionalidad a tu bot para que haga una cosa u otra. <strong>¡Dependerá de ti lo que quieras que realice!</strong></p>
 
                         
-                        <hr>
+                        <hr class = "hrShareAndDonation">
 <div class="shareAndDonation">
     <span class="message">
         <strong>¿Te gustaría apoyar a este blog?</strong> Hazlo con alguna de las siguientes opciones:
@@ -200,7 +202,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-6">
-                Envíame un <a href="https://twitter.com/intent/tweet?text=@yakziamx tu post Mi primer bot en Discord con JavaScript me fue de utilidad ¡Gracias!">tweet <i class="ion-social-twitter"></i></a>
+                Envíame un <a href="https://twitter.com/intent/tweet?text=@yakziamx tu post Mi primer Bot en Discord con JavaScript me fue de utilidad ¡Gracias!">tweet <i class="ion-social-twitter"></i></a>
                 <br>
                 Déjame un <a href="https://www.facebook.com/Yakziamx/" target="_blank">mensaje en mi fan page <i class="ion-social-facebook"></i></a>
                 <br>
