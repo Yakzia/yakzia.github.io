@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>
+        
+            Mi primer bot en Discord con JavaScript &mdash; Jonathan Mendoza
+        
+    </title>
+	
+    <meta name="description" content="Blog personal y profesional de Jonathan Mendoza">
+    <meta name="keywords" content="">
+    <meta name="author" content="Jonathan Mendoza">
+
+    <!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css?v=0.0.5">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#0d0221" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160235526-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-160235526-1');
+    </script>
+
+</head>
+
+<body>
+        <div id="Up"></div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6-sm">
+                    <a href="/" class="logo" title="JonathanMendoza.mx">Jonathan Mendoza</a>
+                    <span class="line">—</span>
+                    <span class="txt-rotate" data-period="2000" data-rotate='[ "Desarrollador", "Diseñador",  "Gamer", "Esposo", "Padre de familia" ]'></span><span class="blinking-cursor">_</span>
+                </div>
+                <div class="col-6-sm">
+                    <div class="social">
+                        <a href="/wishlist.html"><i class="ion-ios7-paperplane-outline"></i></a><span class="separacion"></span><a href="https://twitter.com/Yakziamx" target="_blank"><i class='ion-social-twitter-outline'></i></a><span class="separacion"></span><a href="https://www.facebook.com/Yakziamx/" target="_blank"><i class='ion-social-facebook-outline'></i></a><span class="separacion"></span><a href="https://github.com/Yakzia" target="_blank"><i class='ion-social-github-outline'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-post">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="postInfo">
+                        
+                        
+                        <h1 class="title">Mi primer bot en Discord con JavaScript</h1>
+                        <div class="info"><span class="category">#Desarrollo</span><span> — </span><span class="date">sábado, 31 de octubre de 2020</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="postContent">
+                        <h2 id="introducción">Introducción</h2>
+<p>Como miembro del Clan KMD y como jugador de Age of Empires he tenido una participación constante con los demás compañeros de equipo a través de la plataforma llamada Discord. Dicha plataforma tiene muchas ventajas en cuanto al tema de la comunicación: incluye canales de texto, canales de comunicación privada con los compañeros de juego, canales de voz, así como la opción de poder compartir la pantalla, entre otras más características que les compartiré en un post.</p>
+
+<p>Otra de las ventajas existentes es que es posible agregar bots permitiendo mejorar la experiencia en Discord: existen bots que reproducen música, otros que controlan los roles de los integrantes, así como bots que comparten memes en los canales de texto, etc. Lo interesante de todo esto es que, como programador, también puedes crear un bot para lo que desees, e incluso, puedes ponerlo a disposición de tu servidor de Discord o de otros para que le saquen provecho.</p>
+
+<p>En este tutorial, les compartiré mi experiencia creando un bot. Desde dar de alta el bot en la plataforma de Discord así como realizar una programación sencilla usando una PC con Windows y utilizando Visual Studio Code + JavaScript.</p>
+
+<p>Manos a la obra.</p>
+
+<h2 id="crear-un-bot-en-el-developer-portal-de-discord">Crear un Bot en el Developer Portal de Discord</h2>
+
+<p>La primera parte de este proceso es crear una <strong>Aplicación</strong> y un <strong>Bot</strong> en el portal de Developers (desarrolladores) de Discord. Para esto:</p>
+<ol>
+  <li>Ingresa al <a href="https://discordapp.com/developers/applications/me" target="_blank">Developer Portal</a>: Si ya tienes una cuenta inicia sesión. En caso contrario, es necesario crear una cuenta en Discord)</li>
+  <li>Crea una nueva aplicación: Dentro del <strong>Developer Portal</strong>, selecciona la opción <strong>Applications</strong> (ubicada en el panel izquierdo) y a continuación haz clic en el botón <strong>New Application</strong> (ubicado en el panel derecho). Elige el nombre deseado para la nueva aplicación y haz clic en el botón <strong>Create</strong>.</li>
+  <li>Crea un Bot para la nueva aplicación: Al crear la aplicación automáticamente serás redirigido a una página con herramientas y opciones para personalizar la aplicación. En el panel izquierdo deberás hacer clic en la opción <strong>Bot</strong> y a continuación hacer clic en el botón <strong>Add Bot</strong>. Leemos y aceptamos el mensaje que se mostrará y se agregará automáticamente el Bot que empezaremos a trabajar más adelante.</li>
+</ol>
+
+<p><br /></p>
+
+<p>La siguiente parte, tiene que ver con obtener información de nuestra <strong>Aplicación</strong> y de nuestro <strong>Bot</strong>:</p>
+<ol>
+  <li>Dentro de la página de la Aplicación que creamos en el proceso anterior es necesario elegir la opción <strong>General Information</strong> (ubicada en la parte izquierda). En la sección derecha, encontraremos una etiqueta con el texto <strong>CLIENT ID</strong> junto con unos números. Es necesario tomar nota de esta información, ya que se ocupará en siguientes pasos.</li>
+  <li>Dentro de la misma página de la Aplicación, ahora seleccionaremos la opción <strong>Bot</strong> (ubicada en la parte izquierda). En la sección derecha, encontraremos una etiqueta con el texto <strong>TOKEN</strong> y un link con el texto <strong>Click to Reveal Token</strong> (Clic para revelar el token). Es necesario hacer clic en el link para que se muestre una línea con caracteres, símbolos y números. Es necesario tomar nota de esta información ya que también se ocupará en siguientes pasos.</li>
+</ol>
+
+<blockquote>
+  <p>IMPORTANTE: No compartas la información del <strong>CLIENT ID</strong> ni del <strong>TOKEN</strong> con alguien más.</p>
+</blockquote>
+
+<h2 id="agrega-el-bot-a-tu-servidor-de-discord">Agrega el Bot a tu servidor de Discord</h2>
+
+<p>Como comentaba brevemente en la introducción, Discord es una plataforma de comunicación. Esto se logra creando Servidores y dentro de ellos, canales de texto o de voz. Las personas y Bots se agregan a los Servidores para poder interactuar.</p>
+
+<p>Para lo que haremos a continuación, es necesario que seas el propietario de un Servidor o que tengas los permisos necesarios para poder agregar Bots. Teniendo la información del <strong>CLIENT ID</strong> de tu aplicación armaremos el siguiente link:</p>
+
+<p>https://discordapp.com/oauth2/authorize?client_id=<strong>APP_ID</strong>&amp;scope=bot</p>
+
+<blockquote>
+  <p><strong>NOTA</strong>: Reemplaza <strong>APP_ID</strong> con el <strong>CLIENT ID</strong> que se obtuvo previamente.</p>
+</blockquote>
+
+<p>Ya que adaptaste el link, es necesario introducirlo en el navegador. Se mostrará una página de Discord en donde solicitará la autorización para que el Bot creado anteriormente se pueda unir a uno de los Servidores permitidos. Abre la lista desplegable, selecciona el Servidor y haz clic en el botón <strong>Autorizar</strong>.</p>
+
+<p>Una vez realizado lo anterior, veremos que se agregará el Bot en el Servidor elegido. El Bot lo encontrarás dentro de la categoría de <strong>Desconectado</strong> en el Servidor.</p>
+
+<h2 id="montar-el-entorno-de-desarrollo-para-darle-vida-al-bot">Montar el entorno de desarrollo para darle vida al Bot.</h2>
+
+<p>Como te comentaba en la introducción, vamos a darle vida al Bot usando un entorno de desarrollo sencillo (pero no por eso potente). Para esto, ocuparemos Windows como Sistema Operativo, así como Visual Studio Code para programar en Javascript la funcionalidad del bot y NodeJS el cual es un entorno de ejecución para JavaScript. (Útil para hospedar, compilar y ejecutar localmente las líneas de código que vayamos a escribir)</p>
+
+<p>Realicemos lo siguiente:</p>
+<ol>
+  <li>Ingresa a la página de <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>: Te recomiendo que descargues e instales la versión estable.</li>
+  <li>Ingresa a la página de descargas de <a href="https://nodejs.org/es/download/" target="_blank">Node.js</a>: Descarga el instalador de Windows adecuado a tu sistema operativo (32-bit o 64-bit) Una vez descargado es necesario ejecutarlo para proceder con la instalación.</li>
+</ol>
+
+<h2 id="bot-hola-mundo">Bot: Hola mundo!</h2>
+
+<p>Viene la parte interesante del proceso: Vamos a empezar a programar el Bot. Vamos a escribir unas cuantas líneas que nos permitirán saber si el Bot ya está listo para ser invocado así como una línea de saludo de parte del Bot. Para ello:</p>
+
+<ol>
+  <li>Crea una carpeta en tu PC. En dicha carpeta se creará toda la estructura de archivos que ocupará el Bot para poder ejecutarse. Tú elige la ubicación y el nombre para la nueva carpeta.</li>
+  <li>Ejecuta Visual Studio Code y a través de él, abre la carpeta creada en el punto anterior. A continuación, abre el menú <strong>Terminal</strong> y selecciona la opción <strong>New Terminal</strong> En la parte inferior de Visual Studio Code visualizarás el panel <strong>Terminal</strong>.</li>
+</ol>
+
+<p>La Terminal nos permitirá ejecutar unas instrucciones con las cuales podremos obtener automáticamente los archivos necesarios para la creación de nuestro Bot. En la Terminal, ejecuta escribe el siguiente comando y presiona la tecla Enter para ejecutarlo.</p>
+
+<p class="terminal">npm install discord.js</p>
+
+<p>Esta instrucción le indicará al <strong>Node package manager (npm)</strong> (Administrador de paquetes de Node) que debe descargar e instalar en la carpeta elegida lo necesario para poder desarrollar un bot para discord usando JavaScript. Después de un par de segundos observaremos que en el panel de archivos de Visual Studio Code se encuentran nuevas carpetas y archivos.</p>
+
+<p>Será necesario crear un nuevo archivo en donde definiremos la programación de nuestro Bot. Para ello, en el panel de archivos de Visual Studio Code haz clic secundario y selecciona la opción <strong>New File</strong>, escribe como nombre para el nuevo archivo <strong>MiBot.js</strong> y presiona la tecla Enter.</p>
+
+<p>Haz doble clic en el archivo MiBot.js para editar su contenido y copia y pega en él el siguiente código:</p>
+
+<script src="https://gist.github.com/Yakzia/65fd678accbd2aae0f22d3d2063dadcb.js"></script>
+
+<blockquote>
+  <p><strong>Nota</strong>: Reemplaza el texto <strong>AquiVaElToken</strong> (ubicado en la línea 14) por el <strong>TOKEN</strong> que le corresponde a tu Bot.</p>
+</blockquote>
+
+<p>Una vez colocado el <strong>Token</strong> de tu Bot es necesario guardar los cambios en el archivo <strong>MiBot.js</strong> (puedes hacerlo usando el menú <strong>File</strong> y a continuación hacer clic en <strong>Save</strong>)</p>
+
+<p>Vamos a la Terminal de Visual Studio Code para escribir y ejecutar el siguiente comando:</p>
+
+<p class="terminal">node MiBot.js</p>
+
+<p>Si todo está correcto observaremos en la Terminal que se muestra el texto ¡Estoy listo!. Con esta confirmación vamos al Servidor de Discord en donde agregamos nuestro Bot:</p>
+
+<ol>
+  <li>Lo primero que observaremos es que nuestro Bot ya no está en la categoría Desconectado, sino que pasó ahora a Conectado.</li>
+  <li>Si escribimos la palabra <strong>hola</strong> (en minúsculas)… ¡El Bot nos responderá!</li>
+</ol>
+
+<p>Para detener la ejecución de nuestro Bot, bastará con regresar y seleccionar la Terminal de Visual Studio Code y presionar la combinación de teclas Control + C</p>
+
+<h2 id="comprendiendo-el-código-de-mibotjs">Comprendiendo el código de MiBot.js</h2>
+
+<p>A continuación compartiré el código de el archivo MiBot.js. La diferencia con el código anterior, es que entre líneas escribí comentarios para tratar de entender el código.</p>
+
+<script src="https://gist.github.com/Yakzia/31ab91cee78c5aad977e762f8226ffc7.js"></script>
+
+<h2 id="qué-sigue">¿Qué sigue?</h2>
+
+<p>Como podrás observar, el Bot se mantendrá vivo cuando ejecutes el comando <strong>node MiBot.js</strong> en la Terminal y no detengas la ejecución. Si detienes la ejecución con la combinación de teclas Control + C observarás en Discord que el bot pasará a la categoría de Desconectado y aunque escribas hola en el canal de texto, el Bot ya no responderá. El siguiente paso podría ser hospedar el Bot en un servidor que permita mantenerlo vivo. (Esto lo podrás aprender en un próximo artículo que publique en este blog)</p>
+
+<p>Por otra parte, la funcionalidad de nuestro primer bot es limitada: responde con un Hola Mundo! cuando en un canal de texto escribimos la palabra “hola”. En este punto puedes empezar a agregar más comandos a tu bot para que haga una cosa u otra. ¡Dependerá de ti la funcionalidad que quieras darle!</p>
+
+                        
+                        <hr>
+<div class="shareAndDonation">
+    <span class="message">
+        <strong>¿Te gustaría apoyar a este blog?</strong> Hazlo con alguna de las siguientes opciones:
+    </span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                Envíame un <a href="https://twitter.com/intent/tweet?text=@yakziamx tu post Mi primer bot en Discord con JavaScript me fue de utilidad ¡Gracias!">tweet <i class="ion-social-twitter"></i></a>
+                <br>
+                Déjame un <a href="https://www.facebook.com/Yakziamx/" target="_blank">mensaje en mi fan page <i class="ion-social-facebook"></i></a>
+                <br>
+                Invítame un café por <a href="https://www.buymeacoffee.com/Yakzia" target="_blank">BuyMeACoffee <img src="/img/buymeacoffee.svg" alt=""> </a>
+            </div>
+            <div class="col-6">
+                Apóyame con un <a href="/wishlist.html" target="_blank">artículo de mi Wish list <i class="ion-ios7-paperplane"></i></a> 
+                <br> 
+                Realiza un <a href="https://paypal.me/Yakzia" target="_blank">donativo a través de Paypal <i class="ion-card"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="GoUp">
+                    <a class="jump" href="#Up"><i class="ion-ios7-arrow-up"></i></a>
+                </p>
+                <p class="love">Realizado con <i class="ion-heart"></i> desde San Luis Potosí, S.L.P., México</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/animacion.js"></script>
+<script src="/js/filter.js"></script>
+
+</body>
+</html>
