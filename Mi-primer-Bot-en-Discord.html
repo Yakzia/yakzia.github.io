@@ -16,7 +16,7 @@
     <meta name="author" content="Jonathan Mendoza">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/main.css?v=0.0.7">
+    <link rel="stylesheet" href="/css/main.css?v=0.0.8">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
@@ -82,10 +82,16 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="postContent">
+                    <div id="postContent">
                         <p>En esta guía te compartiré mi experiencia creando un bot: desde crear una Aplicación y un Bot en el portal de desarrolladores de Discord, agregar el Bot a tu Servidor de Discord, hasta instalar un entorno de desarrollo en tu PC con Windows para darle vida al bot.</p>
 
+<figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/YakziaBot.jpg" /><figcaption>El YakziaBot#1307 ejecutándose en el servidor de Discord del Clan KMD.</figcaption></figure>
+
 <p>Manos a la obra.</p>
+
+<nav id="toc">
+    <span class="toc">Tabla de contenidos</span>
+</nav>
 
 <h2 id="crea-una-aplicación-y-un-bot">Crea una Aplicación y un Bot</h2>
 
@@ -111,6 +117,8 @@
   </li>
 </ol>
 
+<figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/Discord-Developer-Portal.jpg" /><figcaption>Creación del YakziaBot en el Discord Developer Portal</figcaption></figure>
+
 <h2 id="agrega-el-bot-a-un-servidor-de-discord">Agrega el Bot a un servidor de Discord</h2>
 
 <p>El siguiente paso es agregar el Bot a un Servidor de Discord. Es necesario que para esto seas el propietario del Servidor o que tengas permisos para agregar Bots.</p>
@@ -121,9 +129,11 @@
 
 <p>Una vez armado el link, usa tu navegador para ir a esa página web. Se mostrará una página de Discord en donde solicitará la autorización para que el Bot creado anteriormente se pueda unir a uno de los Servidores a los que perteneces. Abre la lista desplegable, selecciona el Servidor y haz clic en el botón <strong>Autorizar</strong>.</p>
 
+<figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/Agregar-bot-a-servidor-de-Discord.jpg" /><figcaption>Agregando el YakziaBot al Servidor de Discord del Clan KMD</figcaption></figure>
+
 <p>Una vez realizado lo anterior, veremos que se agregará el Bot en el Servidor elegido. El Bot lo encontrarás dentro de la categoría de <strong>Desconectado</strong> en el Servidor.</p>
 
-<h2 id="monta-el-entorno-de-desarrollo-para-darle-vida-al-bot">Monta el entorno de desarrollo para darle vida al Bot.</h2>
+<h2 id="monta-el-entorno-de-desarrollo-para-darle-vida-al-bot">Monta el entorno de desarrollo para darle vida al Bot</h2>
 
 <p>Como te comentaba en la introducción, vamos a darle vida al Bot usando un entorno de desarrollo sencillo. Para esto, ocuparemos Windows como Sistema Operativo, así como Visual Studio Code para programar en Javascript la funcionalidad del bot y NodeJS el cual es un entorno de ejecución para JavaScript. (Útil para hospedar, compilar y ejecutar localmente las líneas de código que vayamos a escribir)</p>
 
@@ -145,6 +155,8 @@
     <p>A través de la <strong>Terminal</strong> vamos a obtener los archivos necesarios para la creación de nuestro Bot. Escribe en ella el siguiente comando y presiona la tecla <span class="key">Enter</span> para ejecutarlo.</p>
 
     <p class="terminal">npm install discord.js</p>
+
+    <figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/npm-install-discordjs.jpg" /><figcaption>Ejecutando npm install discord.js en la Terminal de Visual Studio Code</figcaption></figure>
 
     <blockquote>
       <p>Esta instrucción le indicará al <strong>node package manager (npm)</strong> (Administrador de paquetes de Node.js) que debe descargar lo necesario para poder desarrollar un bot para Discord usando JavaScript. Después de un par de segundos observaremos que en el panel de archivos de <strong>Visual Studio Code</strong> se encontrarán disponibles una nueva carpeta y un nuevo archivo.</p>
@@ -187,11 +199,78 @@
 
 <script src="https://gist.github.com/Yakzia/31ab91cee78c5aad977e762f8226ffc7.js"></script>
 
+<h2 id="mantén-con-vida-tu-bot">Mantén con vida tu Bot</h2>
+
+<p>Como podrás observar, el Bot se mantendrá vivo cuando ejecutes el comando <strong>node MiBot.js</strong> en la Terminal y no detengas la ejecución. Si detienes la ejecución con la combinación de teclas <span class="key">Control</span> + <span class="key">C</span> observarás en el Servidor de Discord que el Bot pasará a la categoría de <strong>Desconectado</strong> y aunque escribas hola en el canal de texto, el Bot ya no responderá. El siguiente paso será hospedar tu Bot en un servidor que tenga soporte para Node.js y que permita que siempre se esté ejecutando.</p>
+
+<p>Lo primero que te mostraré es cómo subir tú código a un repositorio privado en <strong>GitHub</strong>. Esto nos servirá para el paso siguiente, que es el de hacer el despliegue de ese código en los servidores de <strong>Heroku</strong>.</p>
+
+<h3 id="adaptar-el-código-del-bot-y-subirlo-a-un-repositorio-de-github">Adaptar el código del Bot y subirlo a un repositorio de GitHub</h3>
+
+<ol>
+  <li>
+    <p>Para que la aplicación se pueda desplegar correctamente en el servidor de Heroku, es necesario agregar un archivo a la carpeta que estamos trabajando en Visual Studio Code. El nuevo archivo debe crearse en la raíz de la carpeta, debe llamarse <strong>Procfile</strong> (sin ninguna extensión) y el contenido debe de ser:</p>
+
+    <p class="terminal">worker: npm start</p>
+
+    <blockquote>
+      <p><strong>Importante</strong>: Es necesario que el archivo se llame <strong>Procfile</strong> con la <strong>P</strong> mayúscula y lo demás en minúsculas. Si no se llama así, no se presentará la opción <strong>worker</strong> en Heroku que se requiere para el despliegue.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Será necesario ir a la página de <a href="https://www.github.com/" target="_blank">Github</a> para crear una cuenta; si ya tienes una, solo inicia sesión. Dentro del portal, será necesario ubicar la opción para crear un nuevo repositorio y hacer clic en ella. El nuevo repositorio puede ser <strong>Privado</strong> (si no quieres exponer al público el código de tu bot) y con las demás opciones predeterminadas.</p>
+
+    <figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/Creando-un-repositorio-en-GitHub.jpg" /><figcaption>Creando un respositorio en GitHub</figcaption></figure>
+  </li>
+  <li>
+    <p>Utiliza el método que más te agrade para subir la carpeta del Bot (usada en Visual Studio Code) al repositorio que creaste en el punto anterior. Para este punto yo utilicé <a href="https://desktop.github.com/" target="_blank">Github Desktop</a>.</p>
+  </li>
+</ol>
+
+<h3 id="hacer-el-despliegue-del-bot-en-heroku">Hacer el despliegue del Bot en Heroku</h3>
+
+<ol>
+  <li>
+    <p>Será necesario ir a la página de <a href="https://www.heroku.com/" target="_blank">Heroku</a> para crear una cuenta; si ya tienes una, solo inicia sesión.</p>
+  </li>
+  <li>
+    <p>Dentro del Dashboard de Heroku ubicaremos y haremos clic en el botón <strong>New</strong> y después en la opción <strong>Create new app</strong>. Esto abrirá una opción para crear una aplicación dentro de Heroku, la cual hospedará y ejecutará nuestro bot. Es necesario indicarle un nombre para la app (<strong>App name</strong>) y la región en donde se hospedará (<strong>Choose a region</strong>). Con esto definido, solo tendremos que hacer clic en <strong>Create app</strong></p>
+
+    <figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/Heroku-Create-App.jpg" /><figcaption>Creando una App en el Dashboard de Heroku</figcaption></figure>
+  </li>
+  <li>
+    <p>Automáticamente Heroku nos llevará a la opción <strong>Deploy</strong> de la aplicación creada en el paso anterior. Ahí podremos observar una sección llamada <strong>Deployment method</strong> la cual nos mostrará 3 opciones para “desplegar” nuestro bot: Heroku Git, GitHub y Container Registry. Para nuestro caso seleccionaremos <strong>GitHub</strong> (es probable que sea necesario iniciar sesión para hacer la integración Heroku -&gt; GitHub). Esto nos permitirá seleccionar desde Heroku el repositorio de GitHub en donde está el código de nuestro bot y que automáticamente se pueda ejecutar en los servidores de Heroku.</p>
+
+    <figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/Heroku-Deploy.jpg" /><figcaption>Opción Deploy en el portal de Heroku</figcaption></figure>
+
+    <blockquote>
+      <p><strong>Importante</strong>: Tendremos que esperar unos minutos para que Heroku haga su trabajo: Ir por el código de tu repositorio y desplegarlo en sus servidores.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>El siguiente paso es indicarle a Heroku que el proyecto que obtendrá del repositorio de GitHub no corresponde a una página web que será visitada por los usuarios, sino que será un proceso que deberá estar ejecutándose en todo momento. Para ello, pasamos de la opción <strong>Deploy</strong> a la opción <strong>Resources</strong> y en ella veremos 2 opciones:</p>
+    <p class="terminal">
+     <strong>web</strong> <small>npm start</small><br />
+     <strong>worker</strong> <small>npm start</small>
+ </p>
+
+    <p>Será necesario usar el ícono de editar (el lapiz que se muestra a la derecha) de la opción <strong>web</strong> para desactivarla y usar el ícono de editar de la opción <strong>worker</strong> para activarla.</p>
+
+    <figure><img src="/img/posts/2020-10-31-Mi-primer-Bot-en-Discord/Heroku-Resources.jpg" /><figcaption>Opción Resources en el portal de Heroku</figcaption></figure>
+
+    <p>Después de unos minutos veremos que nuestro Bot pasará de estar de <strong>Desconectado</strong> a <strong>Conectado</strong>. Eso significa que Heroku pudo tomar el código y lo ejecutó correctamente.</p>
+
+    <blockquote>
+      <p><strong>Importante</strong>: Heroku trabaja con diferentes suscripciones. La suscripción <strong>Free</strong> contiene <strong>550</strong> dyno hours al mes para que puedas usarlas en una o varias aplicaciones. Si tu Bot estará día y noche ejecutándose, significa que por día ocupará 24 dyno hours, por semana 168 dyno hours y por mes 672 dyno hours (aproximadamente). Las 550 dyno hours no alcanzarán a cubrir todo el mes: esto significa que, a finales de cada mes, tu Bot se “apagará” ya que no tienes más horas para mantenerlo en ejecución.</p>
+
+      <p>En mi caso asocié una tarjeta de crédito a la cuenta de Heroku y eso me dio <strong>450</strong> dyno hours adicionales al mes. Juntando las <strong>550</strong> + <strong>450</strong> tendrías al mes 1,000 dyno hours gratis. Para más información puedes visitar la documentación <a href="https://devcenter.heroku.com/articles/free-dyno-hours" target="_blank">Free Dyno Hours de Heroku</a>.</p>
+    </blockquote>
+  </li>
+</ol>
+
 <h2 id="qué-sigue">¿Qué sigue?</h2>
 
-<p>Como podrás observar, el Bot se mantendrá vivo cuando ejecutes el comando <strong>node MiBot.js</strong> en la Terminal y no detengas la ejecución. Si detienes la ejecución con la combinación de teclas <span class="key">Control</span> + <span class="key">C</span> observarás en el Servidor de Discord que el Bot pasará a la categoría de <strong>Desconectado</strong> y aunque escribas hola en el canal de texto, el Bot ya no responderá. El siguiente paso podría ser hospedar el Bot en un servidor que permita mantenerlo vivo todo el tiempo sin depender de tu entorno de desarrollo local. (Esto lo podrás aprender en un próximo artículo que publique en este blog)</p>
-
-<p>Por otra parte, la funcionalidad de nuestro primer Bot es limitada: responde con un <strong>Hola Mundo!</strong> cuando en un canal de texto escribimos la palabra <strong>hola</strong>. En este punto puedes empezar a agregar más comandos y funcionalidad a tu bot para que haga una cosa u otra. <strong>¡Dependerá de ti lo que quieras que realice!</strong></p>
+<p>La funcionalidad de nuestro primer Bot es limitada: responde con un <strong>Hola Mundo!</strong> cuando en un canal de texto escribimos la palabra <strong>hola</strong>. En este punto puedes empezar a agregar más comandos y funcionalidad a tu bot para que haga una cosa u otra. <strong>¡Dependerá de ti lo que quieras que realice!</strong></p>
 
                         
                         <hr class = "hrShareAndDonation">
@@ -203,14 +282,17 @@
         <div class="row">
             <div class="col-6">
                 Envíame un <a href="https://twitter.com/intent/tweet?text=@yakziamx tu post Mi primer bot en Discord me fue de utilidad ¡Gracias!">tweet <i class="ion-social-twitter"></i></a>
-                <br>
+            </div>
+            <div class="col-6">
                 Déjame un <a href="https://www.facebook.com/Yakziamx/" target="_blank">mensaje en mi fan page <i class="ion-social-facebook"></i></a>
-                <br>
+            </div>
+            <div class="col-6">
                 Invítame un café por <a href="https://www.buymeacoffee.com/Yakzia" target="_blank">BuyMeACoffee <img src="/img/buymeacoffee.svg" alt=""> </a>
             </div>
             <div class="col-6">
                 Apóyame con un <a href="/wishlist.html" target="_blank">artículo de mi Wish list <i class="ion-ios7-paperplane"></i></a> 
-                <br> 
+            </div>
+            <div class="col-6">
                 Realiza un <a href="https://paypal.me/Yakzia" target="_blank">donativo a través de Paypal <i class="ion-card"></i></a>
             </div>
         </div>
@@ -238,6 +320,7 @@
 
 <script src="/js/animacion.js"></script>
 <script src="/js/filter.js"></script>
+<script src="/js/nav.js"></script>
 
 </body>
 </html>
