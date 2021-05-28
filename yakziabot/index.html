@@ -48,15 +48,20 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="#">
-            <!-- <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
-            YakziaBot
-            </a>
+            <span class="navbar-brand">
+                <a href="/yakziabot/index.html">
+                    <i class="bi bi-app-indicator"></i> YakziaBot
+                </a>
+                <span class="byJM">by <a href="/" target="_blank" rel="nofollow noopener noreferrer">Jonathan Mendoza</a></span>
+            </span>
+            <!-- <a class="navbar-brand" href="#">
+                <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            </a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <a class="nav-link btn btn-primary btn-sm" target="_blank" rel="nofollow noopener noreferrer" href="https://discord.com/oauth2/authorize?client_id=716379591450689538&permissions=2048&scope=bot">Invita al Bot a tu servidor de Discord</a>
+                <a class="nav-link btn btn-primary btn-sm" target="_blank" rel="nofollow noopener noreferrer" href="https://discord.com/oauth2/authorize?client_id=716379591450689538&permissions=2048&scope=bot">Invita al YakziaBot <i class="bi bi-box-arrow-in-right"></i></a>
             </div>
         </div>
     </nav>
@@ -65,15 +70,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-4 order-2 order-lg-1">
-                    <!-- <div class="information"> -->
-                        <h2>Tu Clan o grupo de amigos... amarán este bot ❤️</h2>
-                        <p>El YakziaBot fue creado para usarse en servidores de Discord. Permite analizar jugadores y partidas de <strong>Age Of Empires 2: Definitive Edition</strong> sin tener que estar en el juego.</p>
-                        <p>
-                            <a class="btn btn-primary" target="_blank" rel="nofollow noopener noreferrer" href="https://discord.com/oauth2/authorize?client_id=716379591450689538&permissions=2048&scope=bot"><strong>Invita al Bot a tu servidor de Discord</strong></a>
-                        </p>
-                    <!-- </div> -->
+                    <h2>Tu Clan o grupo de amigos amará este bot.</h2>
+                    <p>El YakziaBot fue desarrollado para usarse en Discord. Permite analizar jugadores y partidas sin tener que estar en el juego: <br><strong><i class="bi bi-shield-shaded"></i> Age Of Empires 2: Definitive Edition</strong></p>
+                    <p>
+                        <a class="btn btn-primary" target="_blank" rel="nofollow noopener noreferrer" href="https://discord.com/oauth2/authorize?client_id=716379591450689538&permissions=2048&scope=bot"><strong>Invita al YakziaBot a tu servidor de Discord <i class="bi bi-box-arrow-in-right"></i></strong></a>
+                    </p>
                 </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-8 order-1 order-lg-2">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-7 offset-lg-1 offset-xl-1 offset-xxl-1 order-1 order-lg-2">
                     <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
                 </div>
             </div>
@@ -85,16 +88,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <h2 id="yakziaBotServers">&mdash;</h2>
-                        <p>Servidores de Discord</p>
+                        <p id="yakziaBotServers">&mdash;</p>
+                        <p>Son los servidores de Discord en donde ya invitaron al bot y ya se usa.</p>
                     </div>
                     <div class="col-12 col-md-4">
-                        <h2 id="yakziaBotUsers">&mdash;</h2>
-                        <p>Jugadores han usado el bot</p>
+                        <p id="yakziaBotUsers">&mdash;</p>
+                        <p>Son los jugadores de <strong><i class="bi bi-shield-shaded"></i> Age Of Empires 2: Definitive Edition</strong> que lo han usado.</p>
                     </div>
                     <div class="col-12 col-md-4">
-                        <h2 id="yakziaBotRequests">&mdash;</h2>
-                        <p>Son las respuestas que ha brindado el bot</p>
+                        <p id="yakziaBotRequests">&mdash;</p>
+                        <p>Son las respuestas que ha brindado el bot<span id="yakziaBotFirstRequest"></span></p>
                     </div>
                 </div>
             </div>
@@ -105,7 +108,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="title">
-                            <h2>Conoce los comandos que puedes invocar.</h2>
+                            <h2>Los comandos que puedes usar son...</h2>
                         </div>
                     </div>
                 </div>
@@ -125,7 +128,7 @@
                             <div class="carousel-item active">
                                 <div class="command">
                                     <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
-                                    <h5> +elo</h5>
+                                    <p class="name">+elo</p>
                                     <p>
                                         Busca el puntaje tuyo o de alguien más en las diferentes categorías de Rank del juego.
                                     </p>
@@ -135,7 +138,7 @@
                             <div class="carousel-item">
                                 <div class="command">
                                     <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
-                                    <h5>+match</h5>
+                                    <p class="name">+match</p>
                                     <p>
                                         Busca la información de la última partida tuya o de alguien más.<br>
                                         <small>La búsqueda la hace sobre salas públicas.</small>
@@ -146,7 +149,7 @@
                             <div class="carousel-item">
                                 <div class="command">
                                     <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
-                                    <h5>+profile</h5>
+                                    <p class="name">+profile</p>
                                     <p>Devuelve la información de <strong>+elo</strong> y <strong>+match</strong></p>
                                 </div>
                             </div>
@@ -154,7 +157,7 @@
                             <div class="carousel-item">
                                 <div class="command">
                                     <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
-                                    <h5>+claim</h5>
+                                    <p class="name">+claim</p>
                                     <p>
                                         ¿Cansado de escribir tu nombre de jugador en los comandos anteriores?<br>
                                         Usa este comando para que el Bot sepa quién eres.
@@ -165,7 +168,7 @@
                             <div class="carousel-item">
                                 <div class="command">
                                     <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
-                                    <h5>+help</h5>
+                                    <p class="name">+help</p>
                                     <p>
                                         Devuelve los comandos disponibles.
                                     </p>
@@ -215,32 +218,20 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-5">
+                <div class="col-12 col-lg-6">
+                    <h5>Apoya al creador del Bot</h5>
+                    <p><strong>YakziaBot</strong> fue creado por <strong>Jonathan Mendoza <a href="https://discordapp.com/users/372731549797580810" target="_blank" rel="nofollow noopener noreferrer">Yakzia#3027</a></strong>.</p>
+                    <p>¿Te gustaría ayudarme a mantenerme despierto para poder seguir agregando funcionalidades al bot? Puedes invitarme un café a través de mi perfil en Patreon.</p>
+                    <p><a class="btn btn-danger" target="_blank" rel="nofollow noopener noreferrer" href="https://www.patreon.com/yakzia">Jonathan Mendoza en Patreon</a></p>
+                </div>
+                <div class="col-12 col-lg-5 offset-lg-1">
                     <p>
-                        <i class="bi-github" role="img" aria-label="GitHub"></i> <strong>YakziaBot</strong> fue creado por Jonathan Mendoza. En Discord me puedes encontrar como <a href="https://discordapp.com/users/372731549797580810" target="_blank" rel="nofollow noopener noreferrer">Yakzia#3027</a>.
-                    </p>
-                    <p>
-                        Age of Empires II: Definitive Edition © Microsoft Corporation.<br>
+                        Age of Empires II: Definitive Edition © Microsoft Corporation.<br><br>
                         <strong>YakziaBot</strong> se creó de conformidad con las <a href="https://www.xbox.com/es-ES/developers/rules" target="_blank" rel="nofollow noopener noreferrer">"Reglas de uso de contenido de juego"</a> de Microsoft usando recursos de Age of Empires II: Definitive Edition, y Microsoft no lo patrocina ni está afiliado con él.
                     </p>
                     <p>
-                        Además, <strong>YakziaBot</strong> usa la <a href="https://aoe2.net/#api" target="_blank" rel="nofollow noopener noreferrer">API de AoE2.net</a> para obtener la información de los jugadores y hace referencia a los proyectos <a href="https://www.aoe2insights.com" target="_blank" rel="nofollow noopener noreferrer">AoE2Insights</a>, <a href="https://aoe2.club" target="_blank" rel="nofollow noopener noreferrer">AoE2.club</a> y <a href="https://aoe2techtree.net" target="_blank" rel="nofollow noopener noreferrer">aoe2techtree</a> para complementar la información.
+                        <strong>YakziaBot</strong> usa la <a href="https://aoe2.net/#api" target="_blank" rel="nofollow noopener noreferrer">API de AoE2.net</a> para obtener información de los jugadores y la complementa con los proyectos <a href="https://www.aoe2insights.com" target="_blank" rel="nofollow noopener noreferrer">AoE2Insights</a>, <a href="https://aoe2.club" target="_blank" rel="nofollow noopener noreferrer">AoE2.club</a> y <a href="https://aoe2techtree.net" target="_blank" rel="nofollow noopener noreferrer">aoe2techtree</a>.
                     </p>
-                </div>
-                <!-- <div class="col-1">
-
-                </div> -->
-                <div class="col-12 col-md-6 col-lg-3 offset-lg-1">
-                    <h5>Apoya al bot</h5>
-                    <p>
-                        Ayúdame a mantenerme despierto con café. Puedes invitármelo a través de mi perfil en Patreon.
-                    </p>
-                    <p><a class="btn btn-danger" target="_blank" rel="nofollow noopener noreferrer" href="https://www.patreon.com/yakzia">Jonathan Mendoza en Patreon</a></p>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <h5>Invita al bot</h5>
-                    <p>Es muy sencillo tener el bot en tu servidor, solo es cuestión de que lo invites a que forme parte de él.</p>
-                    <p><a class="btn btn-primary" target="_blank" rel="nofollow noopener noreferrer" href="https://discord.com/oauth2/authorize?client_id=716379591450689538&permissions=2048&scope=bot">Invitar al bot</a></p>
                 </div>
             </div>
             <div class="row">
@@ -253,7 +244,7 @@
                     <p>Derechos Reservados 2021</p>
                 </div>
                 <div class="col-12 col-md-6">
-                    <p><button id="scrollToTopBtn">Ir arriba</button></p>
+                    <p><button id="scrollToTopBtn"><i class="bi bi-arrow-up-square-fill"></i></button></p>
                 </div>
             </div>
         </div>
@@ -282,10 +273,19 @@
             let servers = data.discordServers;
             let users = data.discordUsers;
             let requests = data.requests;
+            let firstRequest = data.firstRequest;
+            let dateFirstRequest = null;
+
+            let d = new Date(firstRequest);
+            let ye = new Intl.DateTimeFormat('es', { year: 'numeric' }).format(d);
+            let mo = new Intl.DateTimeFormat('es', { month: 'long' }).format(d);
+            let da = new Intl.DateTimeFormat('es', { day: '2-digit' }).format(d);
+            dateFirstRequest = ` desde el ${da} de ${mo} del ${ye}.`;
 
             document.getElementById("yakziaBotServers").innerText = new Intl.NumberFormat('en-US').format(servers);
             document.getElementById("yakziaBotUsers").innerText = new Intl.NumberFormat('en-US').format(users);
             document.getElementById("yakziaBotRequests").innerText = new Intl.NumberFormat('en-US').format(requests);
+            document.getElementById("yakziaBotFirstRequest").innerText = dateFirstRequest;
         });
 
     </script>
