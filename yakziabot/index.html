@@ -13,7 +13,7 @@
 
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/yakziabot.css?v=0.0.9">
+    <link rel="stylesheet" href="/css/yakziabot.css?v=0.0.10">
 
     <!-- Icons -->
     <!-- <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
@@ -49,14 +49,10 @@
     <nav class="navbar sticky-top navbar-expand-sm">
         <div class="container">
             <span class="navbar-brand">
-                <a href="/yakziabot/index.html">
-                    <i class="bi bi-app-indicator"></i> YakziaBot
-                </a>
+                <img src="/yakziabot/img/www/YakziaBot.jpg" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                <a href="/yakziabot/index.html">YakziaBot</a>
                 <span class="byJM">by <a href="/" target="_blank" rel="nofollow noopener noreferrer">Jonathan Mendoza</a></span>
             </span>
-            <!-- <a class="navbar-brand" href="#">
-                <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            </a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,14 +66,27 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-4 order-2 order-lg-1">
-                    <h2>Tu Clan o grupo de amigos amará este bot.</h2>
-                    <p>El YakziaBot fue desarrollado para usarse en Discord. Permite analizar jugadores y partidas sin tener que estar en el juego: <br><strong><i class="bi bi-shield-shaded"></i> Age Of Empires 2: Definitive Edition</strong></p>
+                    <h2>Tu grupo de amigos amará este bot.</h2>
+                    <p>
+                        El YakziaBot es un bot para Discord que usa la información del juego:
+                    </p>
+                    <p>
+                        <strong><i class="bi bi-shield-shaded"></i> Age Of Empires 2: Definitive Edition</strong>
+                    </p>
+                    <p>
+                        Es útil para jugadores, streamers y aficionados del juego ya que permite buscar información sobre un jugador en especial o de una partida que se esté jugando.
+                    </p>
+                    <p>
+                        En las respuestas del bot encontrarás siempre links que complementarán la información.
+                    </p>
+
+                    <!-- <p>El YakziaBot fue desarrollado para usarse en Discord. Permite analizar jugadores y partidas sin tener que estar en el juego: <br><strong><i class="bi bi-shield-shaded"></i> Age Of Empires 2: Definitive Edition</strong></p> -->
                     <p>
                         <a class="btn btn-primary" target="_blank" rel="nofollow noopener noreferrer" href="https://discord.com/oauth2/authorize?client_id=716379591450689538&permissions=2048&scope=bot"><strong>Invita al YakziaBot a tu servidor de Discord <i class="bi bi-box-arrow-in-right"></i></strong></a>
                     </p>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-7 offset-lg-1 offset-xl-1 offset-xxl-1 order-1 order-lg-2">
-                    <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
+                    <img class="img-fluid" src="/yakziabot/img/www/hero.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -127,7 +136,7 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="command">
-                                    <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
+                                    <img class="img-fluid" src="/yakziabot/img/www/commandElo.jpg" alt="">
                                     <p class="name">+elo</p>
                                     <p>
                                         Busca el puntaje tuyo o de alguien más en las diferentes categorías de Rank del juego.
@@ -137,7 +146,7 @@
 
                             <div class="carousel-item">
                                 <div class="command">
-                                    <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
+                                    <img class="img-fluid" src="/yakziabot/img/www/commandMatch.jpg" alt="">
                                     <p class="name">+match</p>
                                     <p>
                                         Busca la información de la última partida tuya o de alguien más.<br>
@@ -148,7 +157,7 @@
 
                             <div class="carousel-item">
                                 <div class="command">
-                                    <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
+                                    <img class="img-fluid" src="/yakziabot/img/www/commandProfile.jpg" alt="">
                                     <p class="name">+profile</p>
                                     <p>Devuelve la información de <strong>+elo</strong> y <strong>+match</strong></p>
                                 </div>
@@ -156,7 +165,7 @@
 
                             <div class="carousel-item">
                                 <div class="command">
-                                    <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
+                                    <img class="img-fluid" src="/yakziabot/img/www/commandClaim.jpg" alt="">
                                     <p class="name">+claim</p>
                                     <p>
                                         ¿Cansado de escribir tu nombre de jugador en los comandos anteriores?<br>
@@ -167,7 +176,7 @@
 
                             <div class="carousel-item">
                                 <div class="command">
-                                    <img class="img-fluid" src="/yakziabot/img/www/Hero.jpg" alt="">
+                                    <img class="img-fluid" src="/yakziabot/img/www/commandHelp.jpg" alt="">
                                     <p class="name">+help</p>
                                     <p>
                                         Devuelve los comandos disponibles.
@@ -225,13 +234,15 @@
                     <p><a class="btn btn-danger" target="_blank" rel="nofollow noopener noreferrer" href="https://www.patreon.com/yakzia">Jonathan Mendoza en Patreon</a></p>
                 </div>
                 <div class="col-12 col-lg-5 offset-lg-1">
-                    <p>
-                        Age of Empires II: Definitive Edition © Microsoft Corporation.<br><br>
-                        <strong>YakziaBot</strong> se creó de conformidad con las <a href="https://www.xbox.com/es-ES/developers/rules" target="_blank" rel="nofollow noopener noreferrer">"Reglas de uso de contenido de juego"</a> de Microsoft usando recursos de Age of Empires II: Definitive Edition, y Microsoft no lo patrocina ni está afiliado con él.
-                    </p>
-                    <p>
-                        <strong>YakziaBot</strong> usa la <a href="https://aoe2.net/#api" target="_blank" rel="nofollow noopener noreferrer">API de AoE2.net</a> para obtener información de los jugadores y la complementa con los proyectos <a href="https://www.aoe2insights.com" target="_blank" rel="nofollow noopener noreferrer">AoE2Insights</a>, <a href="https://aoe2.club" target="_blank" rel="nofollow noopener noreferrer">AoE2.club</a> y <a href="https://aoe2techtree.net" target="_blank" rel="nofollow noopener noreferrer">aoe2techtree</a>.
-                    </p>
+                    <div class="disclaimer">
+                        <p>
+                            Age of Empires II: Definitive Edition © Microsoft Corporation.<br><br>
+                            <strong>YakziaBot</strong> se creó de conformidad con las <a href="https://www.xbox.com/es-ES/developers/rules" target="_blank" rel="nofollow noopener noreferrer">"Reglas de uso de contenido de juego"</a> de Microsoft usando recursos de Age of Empires II: Definitive Edition, y Microsoft no lo patrocina ni está afiliado con él.
+                        </p>
+                        <p>
+                            <strong>YakziaBot</strong> usa la <a href="https://aoe2.net/#api" target="_blank" rel="nofollow noopener noreferrer">API de AoE2.net</a> para obtener información de los jugadores y la complementa con los proyectos <a href="https://www.aoe2insights.com" target="_blank" rel="nofollow noopener noreferrer">AoE2Insights</a>, <a href="https://aoe2.club" target="_blank" rel="nofollow noopener noreferrer">AoE2.club</a> y <a href="https://aoe2techtree.net" target="_blank" rel="nofollow noopener noreferrer">aoe2techtree</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="row">
